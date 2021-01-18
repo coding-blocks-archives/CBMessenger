@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "98036730550",
+    "project_id": "cbmessenger-d6fab",
+    "storage_bucket": "cbmessenger-d6fab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98036730550:android:efff9a41681640d8487417",
+        "android_client_info": {
+          "package_name": "com.puldroid.cbmessenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "98036730550-qfddf553t56cfinf8e6fl7euu09foilq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.puldroid.cbmessenger",
+            "certificate_hash": "045d03c53b977ce83094ddd639512ed015c8ffc0"
+          }
+        },
+        {
+          "client_id": "98036730550-m9lakqd7id0gvv7295qb0or4uonp77hi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkPdlnrXggdOqOzV-QaRa2VuQjTVjnNeA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "98036730550-m9lakqd7id0gvv7295qb0or4uonp77hi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
