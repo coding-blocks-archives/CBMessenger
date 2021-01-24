@@ -43,6 +43,5 @@ class PhoneNoActivity : AppCompatActivity() {
 
     //Add some validation here
     startActivity(Intent(this, OtpActivity::class.java).putExtra(PHONE_NUMBER, phoneNumber))
-    finish()
   }
 }
