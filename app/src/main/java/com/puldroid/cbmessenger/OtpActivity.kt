@@ -35,7 +35,7 @@ class OtpActivity : AppCompatActivity() {
     findViewById<TextView>(R.id.counterTv)
   }
   val otpEt by lazy {
-    findViewById<TextView>(R.id.sentcodeEt)
+    findViewById<TextView>(R.id.firstPinView)
   }
   val verificationBtn by lazy {
     findViewById<Button>(R.id.verificationBtn)

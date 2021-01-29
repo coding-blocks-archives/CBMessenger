@@ -50,4 +50,8 @@ dependencies {
   implementation "androidx.browser:browser:1.2.0"
 
 
+  //Design
+  implementation 'com.airbnb.android:lottie:3.6.0'
+  ///pin view for otp
+  implementation 'com.chaos.view:pinview:1.4.4'
 }

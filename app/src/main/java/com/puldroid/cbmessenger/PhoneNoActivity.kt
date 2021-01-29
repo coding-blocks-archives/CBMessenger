@@ -14,7 +14,7 @@ const val PHONE_NUMBER = "phone"
 class PhoneNoActivity : AppCompatActivity() {
 
   val phoneNoEt: EditText by lazy {
-    findViewById<EditText>(R.id.phoneNumberEt)
+    findViewById<EditText>(R.id.mobileET)
   }
 
   val button: Button by lazy {
@@ -38,7 +38,7 @@ class PhoneNoActivity : AppCompatActivity() {
   }
 
   private fun checkNumber() {
-    countryCode = findViewById<CountryCodePicker>(R.id.ccp).selectedCountryCodeWithPlus
+    countryCode = findViewById<CountryCodePicker>(R.id.cpp).selectedCountryCodeWithPlus
     phoneNumber = countryCode + phoneNoEt.text.toString()
 
     //Add some validation here

@@ -43,23 +43,26 @@
     android:padding="4dp"
     android:textSize="16sp" />
 
-  <EditText
-    android:id="@+id/sentcodeEt"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:imeActionId="6"
-    android:imeActionLabel="Send"
-    android:imeOptions="actionUnspecified"
-    android:inputType="phone"
-    android:letterSpacing="0.8"
-    android:maxLines="1"
-    android:maxLength="6"
-    android:hint="------"
-    android:padding="10dp"
-    android:singleLine="true"
-    android:textAlignment="center"
-    android:textSize="24sp" />
+  <com.chaos.view.PinView
+      android:id="@+id/firstPinView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="60dp"
+      style="@style/PinWidget.PinView"
+      app:itemCount="6"
+      android:textStyle="bold"
+      android:itemBackground="#E4DCE4"
+      app:lineColor="@color/colorPrimaryVariant"
+      app:itemRadius="5dp"
+      app:itemWidth="50dp"
+      android:inputType="number"
+      android:cursorVisible="true"
+      app:cursorColor="@color/colorPrimary"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.498"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/mobileN"
+      tools:ignore="MissingConstraints" />
 
   <TextView
     android:layout_width="wrap_content"
@@ -69,29 +72,29 @@
     android:textSize="16sp" />
 
   <com.google.android.material.button.MaterialButton
-    android:id="@+id/verificationBtn"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="12dp"
-    android:padding="15dp"
-    android:text="send verification code"
-    android:textAllCaps="true"
-    android:textColor="#fff"
-    android:textSize="16sp"
-    app:cornerRadius="5dp" />
+      android:id="@+id/verificationBtn"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="30dp"
+      android:padding="15dp"
+      android:text="send verification code"
+      android:textAllCaps="true"
+      android:textColor="#fff"
+      android:textSize="16sp"
+      app:cornerRadius="5dp" />
 
   <com.google.android.material.button.MaterialButton
-    android:id="@+id/resendBtn"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="12dp"
-    android:enabled="false"
-    android:gravity="center"
-    android:padding="15dp"
-    android:text="Resend SMS"
-    android:textColor="#fff"
-    android:textSize="16sp"
-    app:cornerRadius="5dp" />
+      android:id="@+id/resendBtn"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="30dp"
+      android:enabled="false"
+      android:gravity="center"
+      android:padding="15dp"
+      android:text="Resend SMS"
+      android:textColor="#fff"
+      android:textSize="16sp"
+      app:cornerRadius="5dp" />
 
 
 </LinearLayout>
