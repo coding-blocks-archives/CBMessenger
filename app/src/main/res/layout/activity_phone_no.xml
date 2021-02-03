@@ -1,96 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:gravity="center_horizontal"
-  android:orientation="vertical"
-  tools:context=".PhoneNoActivity">
-
-  <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="28dp"
-    android:textAlignment="center"
-    android:text="Welcome to Coding Block Messenger"
-    android:textColor="@color/colorPrimary"
-    android:textSize="28sp"
-    android:textStyle="bold" />
-
-
-  <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_marginTop="10dp"
-    android:text="Verify Your Number"
-    android:textColor="#515151"
-    android:textSize="20sp"
-    android:textStyle="bold" />
-
-  <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:fontFamily="sans-serif-condensed"
-    android:gravity="center"
-    android:padding="15dp"
-    android:text="Please enter your mobile number.You will get a SMS including a verification code."
-    android:textSize="16sp" />
-
-  <LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_margin="20dp"
-    android:gravity="center"
-    android:orientation="horizontal">
+    android:layout_height="match_parent"
+    tools:context=".PhoneNoActivity">
 
-
-    <com.hbb20.CountryCodePicker
-      android:id="@+id/ccp"
+  <TextView
+      android:id="@+id/textView2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      android:gravity="center"
-      app:ccp_autoDetectCountry="true"
-      app:ccp_showNameCode="false"
-      tools:ccp_contentColor="#fcfdfd"
-      tools:ccp_textSize="20dp" />
+      android:layout_marginTop="48dp"
+      android:padding="10dp"
+      android:text="@string/enter_your_phone_number_to_get_started"
+      android:textAlignment="center"
+      android:textColor="#050505"
+      android:textSize="24sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/textView3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:padding="10dp"
+      android:text="@string/you_will_receive_a_verification_code_carrier_rates_may_apply"
+      android:textAlignment="center"
+      android:textColor="#070707"
+      android:textSize="18sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+  <LinearLayout
+      android:id="@+id/linearLayout"
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="16dp"
+      android:orientation="horizontal"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/cpp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="10dp" />
 
     <EditText
-      android:id="@+id/phoneNumberEt"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      android:layout_weight="1"
-      android:imeActionId="6"
-      android:imeActionLabel="Send"
-      android:imeOptions="actionUnspecified"
-      android:inputType="phone"
-      android:maxLines="1"
-      android:singleLine="true"
-      android:textSize="20sp" />
+        android:id="@+id/mobileET"
+        android:layout_width="194dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:backgroundTint="@color/colorPrimary"
+        android:ems="10"
+        android:inputType="phone"
+        android:padding="10dp"
+        android:textColor="@color/colorPrimaryVariant"
+        android:textCursorDrawable="@drawable/cousir" />
 
 
   </LinearLayout>
 
-
-  <com.google.android.material.button.MaterialButton
-    android:id="@+id/nextBtn"
-    android:enabled="false"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_marginTop="24dp"
-    android:paddingStart="20dp"
-    android:paddingTop="10dp"
-    android:paddingEnd="20dp"
-    android:paddingBottom="10dp"
-    android:text="next"
-    android:textAllCaps="true"
-    android:textColor="#fff"
-    android:textSize="18sp"
-    android:textStyle="normal"
-    app:cornerRadius="5dp" />
-</LinearLayout>
+  <Button
+      android:id="@+id/nextBtn"
+      android:layout_width="315dp"
+      android:layout_height="60dp"
+      android:layout_marginBottom="118dp"
+      android:fontFamily="sans-serif-medium"
+      android:text="Next"
+      android:textSize="18sp"
+      android:enabled="false"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+</androidx.constraintlayout.widget.ConstraintLayout>

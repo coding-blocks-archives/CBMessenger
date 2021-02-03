@@ -11,7 +11,7 @@ class IntroActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_intro)
 
-    findViewById<Button>(R.id.button).setOnClickListener {
+    findViewById<Button>(R.id.nextBtn).setOnClickListener {
       startActivity(Intent(this, PhoneNoActivity::class.java))
     }
   }
