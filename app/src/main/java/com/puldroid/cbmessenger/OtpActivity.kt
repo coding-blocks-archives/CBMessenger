@@ -3,15 +3,15 @@ package com.puldroid.cbmessenger
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Message
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
@@ -22,8 +22,6 @@ import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_otp.*
-import java.lang.Exception
 import java.util.concurrent.TimeUnit
 
 class OtpActivity : AppCompatActivity() {
@@ -144,6 +142,8 @@ class OtpActivity : AppCompatActivity() {
           Snackbar.make(
             findViewById(android.R.id.content), "Quota exceeded.", Snackbar.LENGTH_SHORT
           ).show()
+        } else {
+          notifyUserAndRetry("Your Phone Number might be wrong or connection error.Retry again!")
         }
       }
 
@@ -162,19 +162,53 @@ class OtpActivity : AppCompatActivity() {
   }
 
   private fun signInWithAuth(credential: PhoneAuthCredential) {
-    auth.signInWithCredential(credential).addOnCompleteListener { task ->
+    auth.signInWithCredential(credential).addOnCompleteListener(this) { task ->
       if (task.isSuccessful) {
+
+        if (::progressDialog.isInitialized) {
+          progressDialog.dismiss()
+        }
+        //First Time Login
         if (task.result?.additionalUserInfo?.isNewUser == true) {
           showSignUpActivity()
         } else {
           showHomeActivity()
         }
       } else {
-        progressDialog = createDialog("Phone Number verification failed.", false)
-        progressDialog.show()
+
+        if (::progressDialog.isInitialized) {
+          progressDialog.dismiss()
+        }
+
+        notifyUserAndRetry("Your Phone Number Verification is failed.Retry again!")
+      }
+    }
+  }
+
+  private fun notifyUserAndRetry(message: String) {
+    MaterialAlertDialogBuilder(this).apply {
+      setMessage(message)
+      setPositiveButton("Ok") { _, _ ->
+        showLoginActivity()
       }
 
+      setNegativeButton("Cancel") { dialog, _ ->
+        dialog.dismiss()
+      }
+
+      setCancelable(false)
+      create()
+      show()
     }
+  }
+
+  private fun showLoginActivity() {
+    startActivity(
+      Intent(
+        this,
+        PhoneNoActivity::class.java
+      ).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+    )
   }
 
   private fun showHomeActivity() {
@@ -183,7 +217,7 @@ class OtpActivity : AppCompatActivity() {
   }
 
   private fun showSignUpActivity() {
-    startActivity(Intent(this, MainActivity::class.java))
+    startActivity(Intent(this, SignUpActivity::class.java))
     finish()
   }
 
@@ -199,6 +233,10 @@ class OtpActivity : AppCompatActivity() {
       optionsBuilder.setForceResendingToken(token) // callback's ForceResendingToken
     }
     PhoneAuthProvider.verifyPhoneNumber(optionsBuilder.build())
+  }
+
+  override fun onBackPressed() {
+
   }
 }
 
